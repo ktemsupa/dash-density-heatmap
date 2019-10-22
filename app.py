@@ -18,7 +18,7 @@ df=df[df['PRICE'].between(300000, 500000)] # artificially reduce the number of d
 
 ########## Define the figure
 
-fig = go.Figure(go.Densitymapbox(lat=df['LATITUDE'], lon=df['LONGITUDE'], z=df['PRICE'], radius=10))
+fig = go.Figure(go.Scattermapbox(lat=df['LATITUDE'], lon=df['LONGITUDE'], z=df['PRICE'], radius=10))
 fig.update_layout(mapbox_style="stamen-terrain",
                   mapbox_center_lon=-77.07,
                   mapbox_center_lat=38.92,
