@@ -10,10 +10,10 @@ import pickle
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
-app.title='dc_houses'
+app.title='DC CRIME'
 
 ########## Define the data
-df = pd.read_csv('resources/DC_Properties.csv', index_col='Unnamed: 0')
+df = pd.read_csv('resources/crime_shortdf.csv', index_col='Unnamed: 0')
 df=df[df['PRICE'].between(300000, 500000)] # artificially reduce the number of data points for efficiency
 
 ########## Define the figure
@@ -29,10 +29,10 @@ fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 ########### Set up the layout
 
 app.layout = html.Div(children=[
-    html.H1('DC Houses'),
+    html.H1('DC CRIME'),
     html.Div([
         dcc.Graph(id='figure-1', figure=fig),
-        html.A('Code on Github', href='https://github.com/austinlasseter/dash-density-heatmap'),
+        html.A('Code on Github', href='https://github.com/ktemsupa/dash-density-heatmap'),
         html.Br(),
         html.A('Source:', href='https://plot.ly/python/mapbox-density-heatmaps')
     ])
